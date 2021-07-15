@@ -24,7 +24,7 @@ export default {
     },
     {
       file: pkg.main,
-      format: 'cjs',
+      format: 'umd',
       name,
       sourcemap: production,
     },
