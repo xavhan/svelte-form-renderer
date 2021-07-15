@@ -17,11 +17,11 @@ const name = pkg.name
 export default {
   input: 'src/index.ts',
   output: [
-    {
-      file: pkg.module,
-      format: 'es',
-      sourcemap: production,
-    },
+    // {
+    //   file: pkg.module,
+    //   format: 'es',
+    //   sourcemap: production,
+    // },
     {
       file: pkg.main,
       format: 'umd',

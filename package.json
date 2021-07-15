@@ -1,6 +1,5 @@
 {
   "name": "svelte-form-renderer",
-  "module": "dist/index.mjs",
   "main": "dist/index.js",
   "scripts": {
     "dev": "rollup -c -w",
