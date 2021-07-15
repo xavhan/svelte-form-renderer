@@ -3,6 +3,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import svelte from 'rollup-plugin-svelte';
 import autoPreprocess from 'svelte-preprocess';
+import css from 'rollup-plugin-import-css';
 import { terser } from 'rollup-plugin-terser';
 
 import pkg from './package.json';
@@ -32,7 +33,7 @@ export default {
     commonjs(),
     typescript(),
     svelte({
-      dev: !production,
+      // dev: !production,
       preprocess: autoPreprocess(),
     }),
     resolve({
@@ -40,6 +41,7 @@ export default {
         'svelte',
       ],
     }),
+    css(),
     production && terser(),
   ],
   watch: {

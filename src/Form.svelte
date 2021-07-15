@@ -12,7 +12,7 @@
   import { merge, pipe } from "./utils";
   import { coreStyles } from "./core-styles";
 
-  export let fields: Field[];
+  export let fields: AnyField[];
   export let formData = {};
   export let registry = {};
   export let styles = {};

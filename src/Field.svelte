@@ -4,7 +4,7 @@
   import MultiStringField from "./typed-fields/MultiStringField.svelte";
   import { getContext } from "svelte";
 
-  export let field: Field;
+  export let field: AnyField;
 
   const appliedStyles = getContext<StyleMap>("afondla.styles");
 
@@ -13,7 +13,7 @@
     string: StringField,
     strings: MultiStringField,
   };
-  const getInput = (field: Field) => {
+  const getInput = (field: AnyField) => {
     return typeRegistry[field.type] ?? typeRegistry.string;
   };
 </script>

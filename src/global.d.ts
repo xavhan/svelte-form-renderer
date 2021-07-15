@@ -36,7 +36,7 @@ type MultiStringField = _BaseField<{
   choices: string[];
 }>;
 
-type Field = StringField | BooleanField | MultiStringField;
+type AnyField = StringField | BooleanField | MultiStringField;
 type FieldValue = string | boolean | string[];
 
 type Registry = {
