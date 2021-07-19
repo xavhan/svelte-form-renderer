@@ -18,14 +18,8 @@ export default {
   input: 'src/index.ts',
   output: [
     {
-      file: pkg.module,
-      format: 'es',
-      sourcemap: production,
-    },
-    {
       file: pkg.main,
       format: 'cjs',
-      name,
       sourcemap: production,
     },
   ],
@@ -33,7 +27,7 @@ export default {
     commonjs(),
     typescript(),
     svelte({
-      // dev: !production,
+      dev: !production,
       preprocess: autoPreprocess(),
     }),
     resolve({

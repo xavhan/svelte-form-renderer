@@ -1,6 +1,7 @@
 <script lang="ts">
   import { getContext } from "svelte";
   import { formDataStore } from "../stores";
+  import { pathOr } from "./../utils";
 
   export let field: BooleanField;
 
@@ -10,7 +11,7 @@
     $formDataStore[field.id] = e.target.checked;
   };
 
-  const _class = appliedStyles?.fields?.[field.id] ?? appliedStyles.checkbox;
+  const _class = pathOr(appliedStyles.checkbox, ['fields', field.id], appliedStyles);
 </script>
 
 <input

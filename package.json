@@ -1,7 +1,5 @@
 {
-  "name": "nfs-svelte-form-renderer",
-  "svelte": "src/index.ts",
-  "module": "dist/index.mjs",
+  "name": "svelte-form-renderer",
   "main": "dist/index.js",
   "scripts": {
     "dev": "rollup -c -w",
@@ -37,13 +35,6 @@
   ],
   "description": "A Svelte component library template with TypeScript support",
   "version": "1.0.0-beta.8",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/patrickroberts/svelte-ts-component-template.git"
-  },
-  "author": "Patrick Roberts",
-  "bugs": {
-    "url": "https://github.com/patrickroberts/svelte-ts-component-template/issues"
-  },
-  "homepage": "https://github.com/patrickroberts/svelte-ts-component-template#readme"
+  "author": "Xavier Haniquaut",
+  "dependencies": {}
 }

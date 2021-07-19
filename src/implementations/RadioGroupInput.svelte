@@ -1,6 +1,7 @@
 <script lang="ts">
   import { getContext } from "svelte";
   import { formDataStore } from "../stores";
+  import { pathOr } from "./../utils";
 
   const appliedStyles = getContext<StyleMap>("afondla.styles");
 
@@ -9,7 +10,7 @@
   const update = (e): void => {
     $formDataStore[field.id] = e.target.value;
   };
-  const _class = appliedStyles?.fields?.[field.id] ?? appliedStyles.radio;
+  const _class = pathOr(appliedStyles.radio, ['fields', field.id], appliedStyles);
 </script>
 
 {#each field.choices as choice}

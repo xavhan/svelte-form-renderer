@@ -1,6 +1,7 @@
 <script lang="ts">
   import { getContext } from "svelte";
   import { formDataStore } from "../stores";
+  import { pathOr } from "./../utils";
 
   const appliedStyles = getContext<StyleMap>("afondla.styles");
 
@@ -9,7 +10,7 @@
   const update = (e): void => {
     $formDataStore[field.id] = e.target.value;
   };
-  const _class = appliedStyles?.fields?.[field.id] ?? appliedStyles.input;
+  const _class = pathOr(appliedStyles.input, ['fields', field.id], appliedStyles);
 </script>
 
 <input
@@ -18,8 +19,8 @@
   id={field.id}
   name={field.id}
   required={!!field.required}
-  placeholder={field.placeholder ?? field.title ?? ""}
+  placeholder={field.placeholder || field.title || ""}
   pattern={field.pattern}
-  value={$formDataStore[field.id] ?? ""}
+  value={$formDataStore[field.id] || ""}
   on:change={update}
 />

@@ -14,7 +14,7 @@
     strings: MultiStringField,
   };
   const getInput = (field: AnyField) => {
-    return typeRegistry[field.type] ?? typeRegistry.string;
+    return typeRegistry[field.type] || typeRegistry.string
   };
 </script>
 

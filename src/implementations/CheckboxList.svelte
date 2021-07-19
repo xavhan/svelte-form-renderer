@@ -1,12 +1,13 @@
 <script lang="ts">
   import { getContext } from "svelte";
   import { formDataStore } from "../stores";
+  import  {pathOr} from './../utils';
   const appliedStyles = getContext<StyleMap>("afondla.styles");
 
   export let field: MultiStringField;
 
   const hash = Object.fromEntries(
-    field.choices.map((c) => [c, ($formDataStore[field.id] ?? []).includes(c)])
+    field.choices.map((c) => [c, ($formDataStore[field.id] || []).includes(c)])
   );
 
   const update = (e) => {
@@ -16,7 +17,7 @@
       []
     );
   };
-  const _class = appliedStyles?.fields?.[field.id] ?? appliedStyles.checkbox;
+  const _class = pathOr(appliedStyles.checkbox, ['fields.', field.id], appliedStyles);
 </script>
 
 {#each field.choices as choice}

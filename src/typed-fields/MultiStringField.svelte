@@ -6,7 +6,7 @@
   const registry = getContext<Registry>("registry");
 
   const getImplementation = (field: MultiStringField) => {
-    return registry.multi[field.implem] ?? registry.multi.default;
+    return registry.multi[field.implem] || registry.multi.default;
   };
 </script>
 

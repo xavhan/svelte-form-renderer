@@ -11,3 +11,8 @@ export const merge = (target: AnyObject, source: AnyObject): AnyObject => {
 
 export const pipe = <I, O>(...ops: Function[]) =>
   ops.reduce((a, b) => (arg) => b(a(arg))) as (i?: I) => O;
+
+export const isNil = (x: any): x is null | undefined => x === null || x === undefined;
+
+export const pathOr = (or, path:string[], obj) =>
+  path.reduce((acc, currentPath) => isNil(acc && acc[currentPath]) ? or : acc[currentPath], obj);

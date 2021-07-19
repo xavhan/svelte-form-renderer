@@ -6,7 +6,7 @@
   const registry = getContext<Registry>("registry");
 
   const getImplementation = (field: BooleanField) => {
-    return registry.boolean[field.implem] ?? registry.boolean.default;
+    return registry.boolean[field.implem] || registry.boolean.default;
   };
 </script>
 
