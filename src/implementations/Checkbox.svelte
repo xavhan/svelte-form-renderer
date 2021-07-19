@@ -5,7 +5,7 @@
 
   export let field: BooleanField;
 
-  const appliedStyles = getContext<StyleMap>("afondla.styles");
+  const appliedStyles = getContext<StyleMap>("styles");
 
   const update = (e): void => {
     $formDataStore[field.id] = e.target.checked;

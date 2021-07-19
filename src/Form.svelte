@@ -9,7 +9,7 @@
     onDestroy,
     getContext,
   } from "svelte";
-  import { merge, pipe } from "./utils";
+  import { merge, pipe, namespaced } from "./utils";
   import { coreStyles } from "./core-styles";
 
   export let fields: AnyField[];
@@ -29,15 +29,15 @@
   );
 
   setContext("registry", buildRegistry());
-  setContext("afondla.styles", buildStyles());
-  setContext("afondla.formDataStore", formDataStore);
+  setContext("styles", buildStyles());
+  setContext(namespaced('formDataStore'), formDataStore);
 
-  const appliedStyles = getContext<StyleMap>("afondla.styles");
+  const appliedStyles = getContext<StyleMap>("styles");
 
   formDataStore.set(formData);
 
   const unsubscribe = formDataStore.subscribe((formData) => {
-    dispatch("form-data-changed", formData);
+    dispatch(namespaced('formDataChange'), formData);
   });
 
   onDestroy(() => {
@@ -45,7 +45,7 @@
   });
 
   const submit = () => {
-    dispatch("submit", $formDataStore)
+    dispatch(namespaced('submit'), $formDataStore)
   }
 </script>
 

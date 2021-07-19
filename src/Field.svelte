@@ -6,7 +6,7 @@
 
   export let field: AnyField;
 
-  const appliedStyles = getContext<StyleMap>("afondla.styles");
+  const appliedStyles = getContext<StyleMap>("styles");
 
   const typeRegistry = {
     boolean: BooleanField,

@@ -16,3 +16,5 @@ export const isNil = (x: any): x is null | undefined => x === null || x === unde
 
 export const pathOr = (or, path:string[], obj) =>
   path.reduce((acc, currentPath) => isNil(acc && acc[currentPath]) ? or : acc[currentPath], obj);
+
+export const namespaced = str => ['sfr', str].filter(Boolean).join('.')

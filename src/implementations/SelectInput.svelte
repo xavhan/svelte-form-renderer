@@ -3,7 +3,7 @@
   import { pathOr } from "./../utils";
 
   import { formDataStore } from "../stores";
-  const appliedStyles = getContext<StyleMap>("afondla.styles");
+  const appliedStyles = getContext<StyleMap>("styles");
 
   export let field: ChoiceField;
 

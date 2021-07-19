@@ -1,4 +1,4 @@
-import { merge, pipe, pathOr, isNil } from "./utils";
+import { merge, pipe, pathOr, isNil, namespaced } from "./utils";
 
 test("merge", () => {
   expect(merge({ a: 1 }, { b: 2 })).toEqual({ a: 1, b: 2 });
@@ -43,4 +43,9 @@ test("pathOr", () => {
   expect(pathOr('default', ['nested','truthy'], test)).toEqual(true)
   expect(pathOr('default', ['nested','falsy'], test)).toEqual(false)
   expect(pathOr('default', ['nested','unknown'], test)).toEqual('default')
+});
+
+test("namespaced", () => {
+  expect(namespaced()).toEqual('sfr')
+  expect(namespaced('stores')).toEqual('sfr.stores')
 });
